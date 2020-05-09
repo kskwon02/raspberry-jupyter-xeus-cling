@@ -10,4 +10,5 @@ RUN pip3 install matplotlib numpy jupyter
 ADD ./Scripts/setup_jupyter.sh /root/setup_jupyter.sh
 RUN chmod +x /root/setup_jupyter.sh && /root/setup_jupyter.sh
 
-CMD su jupyter -- /home/jupyter/run.sh
+CMD chown jupyter -R  /notebook && su jupyter -- /home/jupyter/run.sh
+
