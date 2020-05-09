@@ -7,7 +7,7 @@ RUN apt-get install -y python-opencv python3-numpy
 RUN pip3 install matplotlib numpy jupyter
 
 
-ADD ./setup_jupyter.sh /root/setup_jupyter.sh
+ADD ./Scripts/setup_jupyter.sh /root/setup_jupyter.sh
 RUN chmod +x /root/setup_jupyter.sh && /root/setup_jupyter.sh
 
 CMD su jupyter -- /home/jupyter/run.sh
