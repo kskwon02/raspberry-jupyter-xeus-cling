@@ -1,4 +1,6 @@
-FROM python:3.7.0
+#FROM python:3.7.0
+FROM python:3.7.16-buster
+
 RUN apt-get update && apt-get upgrade -yf
 
 RUN apt-get install -y libtool pkg-config build-essential autoconf automake git cmake tmux vim python-pip python3-pip
@@ -22,7 +24,8 @@ RUN cd xtl && mkdir build && cd build && cmake ../ && make -j4 && make install
 
 # openssl
 RUN git clone -b OpenSSL_1_1_1g https://github.com/openssl/openssl.git --depth 1
-RUN cd openssl && ./config && make -j4 && make test && make install
+#RUN cd openssl && ./config && make -j4 && make test && make install
+RUN cd openssl && ./config && make -j4 && make install
 
 # libzmq
 RUN git clone -b v4.3.2 https://github.com/zeromq/libzmq.git --depth 1

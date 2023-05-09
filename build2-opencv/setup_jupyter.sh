@@ -10,7 +10,7 @@ echo "jupyter notebook --generate-config" > /home/jupyter/setup.sh
 chmod +x /home/jupyter/setup.sh
 su jupyter -- /home/jupyter/setup.sh
 
-echo "cd /notebook && jupyter notebook --no-browser --ip=0.0.0.0" > /home/jupyter/run.sh
+echo "cd /notebook && jupyter lab --no-browser --ip=0.0.0.0" > /home/jupyter/run.sh
 chmod +x /home/jupyter/run.sh
 
 echo "jupyter notebook password" > /home/jupyter/modify_password.sh
