@@ -1,4 +1,4 @@
-# raspberry-jupyter-xeus-cling
+# raspberry-jupyter-xeus-cling (x86_64, ARM64) with buildx
 Jupyter-xeus-cling with opencv c++ version for raspberry pi running docker.
 
 # How to use :
