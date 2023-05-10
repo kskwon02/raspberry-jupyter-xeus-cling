@@ -19,7 +19,8 @@ RUN git clone -b v3.7.3 https://github.com/nlohmann/json.git --depth 1
 RUN cd json && mkdir build && cd build && cmake ../ && make -j4 && make install
 
 # xtl
-RUN git clone -b 0.6.13 https://github.com/xtensor-stack/xtl.git --depth 1
+#RUN git clone -b 0.6.13 https://github.com/xtensor-stack/xtl.git --depth 1
+RUN git clone -b 0.7.0 https://github.com/xtensor-stack/xtl.git --depth 1
 RUN cd xtl && mkdir build && cd build && cmake ../ && make -j4 && make install
 
 # openssl
@@ -29,14 +30,17 @@ RUN cd openssl && ./config && make -j4 && make install
 
 # libzmq
 RUN git clone -b v4.3.2 https://github.com/zeromq/libzmq.git --depth 1
+#RUN git clone -b v4.4.1 https://github.com/zeromq/libzmq.git --depth 1
 RUN cd libzmq && mkdir build && cd build && cmake ../ && make -j4 && make install
 
 # cppzmq
-RUN git clone -b v4.3.0 https://github.com/zeromq/cppzmq.git --depth 1
-RUN cd cppzmq && mkdir build && cd build && cmake ../ && make -j4 && make install
+#RUN git clone -b v4.3.0 https://github.com/zeromq/cppzmq.git --depth 1
+RUN git clone -b v4.7.1 https://github.com/zeromq/cppzmq.git --depth 1
+RUN cd cppzmq && mkdir build && cd build && cmake -DCPPZMQ_BUILD_TESTS=OFF ../ && make -j4 && make install
 
 # install xeus
-RUN git clone -b 0.23.3 https://github.com/jupyter-xeus/xeus.git --depth 1
+#RUN git clone -b 0.23.3 https://github.com/jupyter-xeus/xeus.git --depth 1
+RUN git clone -b 2.4.1 https://github.com/jupyter-xeus/xeus.git --depth 1
 RUN cd xeus && mkdir build && cd build && \
     cmake -D CMAKE_BUILD_TYPE=Release ../ && make -j4 && make install
 
@@ -70,7 +74,8 @@ RUN cd llvm-with-cling && mkdir build && cd build && \
 
 # install xeus-cling
 WORKDIR /root/source
-RUN git clone -b 0.8.1 https://github.com/jupyter-xeus/xeus-cling.git --depth 1
+#RUN git clone -b 0.8.1 https://github.com/jupyter-xeus/xeus-cling.git --depth 1
+RUN git clone -b 0.13.0 https://github.com/jupyter-xeus/xeus-cling.git --depth 1
 RUN cd xeus-cling && mkdir build && cd build && \
     cmake \
         -DCMAKE_BUILD_TYPE=Release \
