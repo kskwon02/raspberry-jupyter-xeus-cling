@@ -6,4 +6,4 @@ docker run -it --restart unless-stopped \
     -v $CONFIG_FILE:/home/jupyter/.jupyter/ \
     -v $NOTEBOOK_FOLDER:/notebook/ \
     $IMAGE_NAME 
-    # /bin/bash
+#    /bin/bash
